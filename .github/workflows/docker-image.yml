@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Login & Build the Docker image
       run: |
-        docker login --username pankajkalouni07 --password ${{ secrets.GHCR.PASS}} ghcr.io
+        docker login --username pankajkalouni07 --password ${{ secrets.GHCR_PASS}} ghcr.io
         docker build . --file Dockerfile --tag myfirstactionimg:$(date +%s)
         docker push ghcr.io/pankajkalouni07/myfirstactionimg:$(date +%s)
