@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login & Build the Docker image
+      run: |
+        docker login --username pankajkalouni07 --password ${{ secrets.GHCR.PASS}} ghcr.io
+        docker build . --file Dockerfile --tag myfirstactionimg:$(date +%s)
+        docker push ghcr.io/pankajkalouni07/myfirstactionimg:$(date +%s)
