@@ -17,5 +17,5 @@ jobs:
     - name: Login & Build the Docker image
       run: |
         docker login --username pankajkalouni07 --password ${{ secrets.GHCR_PASS}} ghcr.io
-        docker build . --file Dockerfile --tag ghcr.io/pankajkalouni07/myfirstactionimg:$(date +%s)
+        docker build . --file Dockerfile --tag ghcr.io/pankajkalouni07/myfirstactionimg:$(date +%M)
         docker push ghcr.io/pankajkalouni07/myfirstactionimg:$(date +%M)
